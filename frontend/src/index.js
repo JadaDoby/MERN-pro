@@ -11,6 +11,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from'./screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import{Provider} from 'react-redux';
+import  store from'./store';
+
 
 
 const router=createBrowserRouter(
@@ -27,6 +30,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <RouterProvider router={router} />
+      <Provider></Provider>
    </React.StrictMode>
 );
 
