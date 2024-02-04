@@ -152,6 +152,10 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 //@desc Get users
 //@route GET/api/users
 //@access Private/Admin
