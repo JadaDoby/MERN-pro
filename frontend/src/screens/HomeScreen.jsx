@@ -4,7 +4,9 @@ import { useGetProductsQuery } from '../slices/productsApiSlice';
 import { Link } from 'react-router-dom';
 import Product from '../components/Product';
 import Loader from '../components/Loader';
-import Message from '../components/Message';
+import {Message} from '../components/Message';
+import ProductCarousel from '../components/ProductCarousel';
+
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();

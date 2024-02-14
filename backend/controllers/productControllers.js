@@ -1,6 +1,7 @@
-import express from 'express';
-const router=express.Router();
-import { getProducts, getProductsByID } from '../controllers/productControllers.js';
+
+import asyncHandler from '../middleware/asyncHandler.js';
+import Product from '../models.productModel.js';
+
 //@desc Fetch all products
 //@route GET/api/products
 //@access Public
