@@ -11,6 +11,9 @@ import reportWebVitals from './reportWebVitals';
 import PrivateRoute from './components/PrivateRoute';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+import{PayPalScriptProvider} from '@paypal/react-paypal-js';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 import rootReducer from './reducers'; // replace with the actual path to your root reducer
@@ -23,10 +26,13 @@ const router = createBrowserRouter(
       <Route path='/cart' element={<CartScreen />} />
       <Route path='/login' element={<LoginScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
+     
       <Route path='' element={<PrivateRoute/>} >
         <Route path='shipping'element={<ShippingScreen/>}/>
         <Route path='payment' element={<PaymentScreen/>}/>
         <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
+        <Route path='/order/:id' element={<OrderScreen />} />
+        <Route path='/profile' element={<ProfileScreen />} />
       </Route>
 </Route>
   )
@@ -43,11 +49,11 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <Provider store={store}>
-        <App />
+       <Provider store={store}>
+      <PayPalScriptProvider deferLoading={true}>
+      <RouterProvider router={router}/>
+      </PayPalScriptProvider>
       </Provider>
-    </RouterProvider>
   </React.StrictMode>
 );
 
