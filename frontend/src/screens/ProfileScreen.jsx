@@ -50,13 +50,53 @@ const ProfileScreen = () => {
       <Col md={3}>
         <h2>User Profile</h2>
         <Form onSubmit={submitHandler}>
-          {/* ... your form controls ... */}
+          <Form.Group controlId='name'>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter your name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId='email'>
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
+              type='email'
+              placeholder='Enter your email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId='password'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Enter your password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId='confirmPassword'>
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Confirm your password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+
           <Button type='submit' variant='primary' className='my-2'>
             Update
           </Button>
           {loadingUpdateProfile && <Loader />}
         </Form>
       </Col>
+
       <Col md={9}>
         <h2>My Orders</h2>
         {loadingOrders ? (
@@ -113,3 +153,4 @@ const ProfileScreen = () => {
 };
 
 export default ProfileScreen;
+

@@ -1,13 +1,7 @@
-import express from 'express';
-import { getProducts,getProductsByID } from '../controllers/productControllers';
-import { get } from 'mongoose';
+import { getProducts, getProductsByID, createProduct, deleteProduct } from '../controllers/productControllers.js';
+import { protect, admin } from '../middleware/authMiddleware.js';
 
-const productControllers = require('../controllers/productControllers');
-
-router.route('/').get(getProducts);
-router.route('/:id').get(getProductsByID);
-
-// Route to fetch all products
-
+router.route('/').get(getProducts).post(protect, admin, createProduct);
+router.route('/:id').get(getProductsByID).put(protect, admin, updatedProduct).delete(protect, admin, deleteProduct);
 
 export default router;

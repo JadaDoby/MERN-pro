@@ -8,6 +8,9 @@ import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice';
 import { clearCartItems } from '../slices/cartSlice';
+import { Card, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 
 const PlaceOrderScreen = () => {
